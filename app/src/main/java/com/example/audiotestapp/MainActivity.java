@@ -57,13 +57,6 @@ public class MainActivity extends AppCompatActivity {
       appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
       NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
-      binding.fab.setOnClickListener(new View.OnClickListener() {
-         @Override
-         public void onClick(View view) {
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                  .setAction("Action", null).show();
-         }
-      });
    }
 
    @Override
@@ -117,6 +110,11 @@ public class MainActivity extends AppCompatActivity {
 
             if(am.getMode() != expectedMode) {
                Log.e(TAG, "Mode is not as expected.  TTS Enabled is " + ttsEnabled);
+
+               runOnUiThread(() -> {
+                  ttsViewModel.incrementIssueCount();
+
+               });
                am.setMode(expectedMode);
             }
 
@@ -127,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
             // Sleep a little while
             try {
-               Thread.sleep(2000);
+               Thread.sleep(2500);
             } catch (InterruptedException e) {
                e.printStackTrace();
             }

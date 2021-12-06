@@ -7,6 +7,6 @@
     <string name="next">Start Talking</string>
     <string name="previous">Stop Talking</string>
 
-    <string name="hello_first_fragment">Hello, you should hear no talking</string>
-    <string name="hello_second_fragment">Hello, you should hear some talking</string>
+    <string name="hello_first_fragment">Hello, you should hear no talking. Error Count = %1$s</string>
+    <string name="hello_second_fragment">Hello, you should hear some talking. Error Count = %1$s</string>
 </resources>
